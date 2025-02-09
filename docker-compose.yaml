@@ -1,0 +1,39 @@
+services:
+  phpMyAdmin:
+    image: phpmyadmin:5-apache
+    restart: always
+    ports:
+      - 8085:80
+    environment:
+      - PMA_ARBITRARY=1
+
+  db:
+    image: mariadb:10
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: BestPasswordEver:)
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  php-server:
+    build:
+      context: .
+      dockerfile: phpserver.Dockerfile
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - 8080:8080
+    command: systemctl start php-server php-script
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel notice
+    volumes:
+      - cache:/data
+
+volumes:
+  cache:

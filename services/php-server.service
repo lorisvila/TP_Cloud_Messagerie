@@ -1,0 +1,10 @@
+[Unit]
+Description=PHP Server
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/php -S 0.0.0.0:8080 -t /var/www/html
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

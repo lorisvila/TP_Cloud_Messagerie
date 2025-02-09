@@ -1,0 +1,10 @@
+[Unit]
+Description=PHP Script
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/php /var/www/html/scripts/sync.php
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
