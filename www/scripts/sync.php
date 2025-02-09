@@ -1,10 +1,10 @@
 <?php
 // Connexion à Redis
 $redis = new Redis();
-$redis->connect('redis', 6379); // Change to your actual Redis connection details
+$redis->connect('redis', 6379);
 
 // Connexion à MySQL
-$mysql = new mysqli('db', 'root', 'BestPasswordEver:)', 'web'); // Change to your actual MySQL connection details
+$mysql = new mysqli('db', 'root', 'BestPasswordEver:)', 'web');
 
 // Vérifier la connexion
 if ($mysql->connect_error) {
