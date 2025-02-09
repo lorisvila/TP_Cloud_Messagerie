@@ -29,3 +29,9 @@ To contribute to this project, please fork the repository and submit a pull requ
 
 ## Authors
 * [VILA Loris](https://github.com/lorisvila)
+* BOUDOUR Yacine 
+* LESCURE Maël
+* LAURIE Téo
+* LAHOUSSE Matthieu
+* NELLENBACH Quentin
+
