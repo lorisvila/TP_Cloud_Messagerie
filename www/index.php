@@ -23,7 +23,9 @@ if (isset($_GET['user'])) {
     </head>
     <body>
         <div id="mainContainer">
-            <div id="nav" class="pageZone" style="display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: flex-end; gap: 1em">
+            <div id="nav"
+                 class="pageZone"
+                 style="display: flex; flex-flow: row nowrap; justify-content: flex-start; align-items: flex-end; gap: 1em">
                 <h1>Messagerie - Accueil</h1>
             </div>
             <div id="sideBar" class="card pageZone">
@@ -44,7 +46,6 @@ if (isset($_GET['user'])) {
             </div>
 
             <div id="content" class="pageZone d-flex gap-3 flex-row">
-
                 <div class="card">
                     <div class="card-header">
                         Send message
@@ -118,8 +119,6 @@ if (isset($_GET['user'])) {
                         <?php endif; ?>
                     </div>
                 </div>
-            </div>
-        </div>
             </div>
         </div>
     </body>
