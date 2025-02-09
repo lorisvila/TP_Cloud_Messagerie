@@ -33,8 +33,12 @@ if (isset($_GET['user'])) {
                 <div class="card-body" style="display: flex; flex-flow: column nowrap; gap: 1em; justify-content: center; align-items: center; min-width: 10em">
                     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                         <a href="/" class="btn btn-primary">Home</a>
-                        <a href="/listAllMessages.php" class="btn btn-primary">Tout les messages</a>
-                        <a href="http://localhost:8085/?pma_username=root&pma_password=BestPasswordEver:)&server=db" target="_blank" class="btn btn-secondary">PhpMyAdmin</a>
+                        <a href="/listAllMessages.php" class="btn btn-primary">Tous les messages</a>
+                        <a href="http://localhost:8085/?pma_username=root&pma_password=BestPasswordEver:)&server=db"
+                           target="_blank"
+                           class="btn btn-secondary">
+                            PhpMyAdmin
+                        </a>
                     </div>
                 </div>
             </div>
