@@ -1,7 +1,5 @@
 <?php
-// Connexion à Redis
-$redis = new Redis();
-$redis->connect('redis', 6379);
+include("redis.php");
 
 if (!(isset($_POST['sender_id']) && isset($_POST['receiver_id']) && isset($_POST['message']))) {
     echo "There are values missing in you form...";
@@ -24,6 +22,7 @@ $message_data = [
 $message_json = json_encode($message_data);
 
 // Utiliser l'instruction LPUSH pour ajouter le message à la liste "messages"
+/** @var Redis $redis */
 $redis->lPush('messages', $message_json);
 
 // Redirection vers la page principale

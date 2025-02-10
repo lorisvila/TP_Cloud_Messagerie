@@ -8,6 +8,7 @@ if (isset($_GET['user'])) {
 
     // Requête SQL pour récupérer les messages reçus par l'utilisateur
     $sql = "SELECT * FROM messages WHERE receiver_id = ?";
+    /** @var mysqli $conn */
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $user_id);
     $stmt->execute();

@@ -1,19 +1,11 @@
 <?php
-// Connexion à Redis
-$redis = new Redis();
-$redis->connect('redis', 6379);
-
-// Connexion à MySQL
-$mysql = new mysqli('db', 'root', 'BestPasswordEver:)', 'web');
-
-// Vérifier la connexion
-if ($mysql->connect_error) {
-    die("Connection failed: " . $mysql->connect_error);
-}
+include("../redis.php"); // Connexion au cache Redis
+include("../db.php"); // Connexion à la BDD MySQL
 
 // Boucle pour consommer les messages
 while (true) {
     // Récupérer le dernier message de la liste
+    /** @var Redis $redis */
     $message = $redis->rPop('messages');
 
     // Si il n'y a pas de message, attendre 1 seconde et réessayer
@@ -27,7 +19,8 @@ while (true) {
 
     // Insérer le message dans la base de données
     $sql = "INSERT INTO messages (sender_id, receiver_id, message) VALUES (?, ?, ?)";
-    $stmt = $mysql->prepare($sql);
+    /** @var mysqli $conn */
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $message_data['sender_id'], $message_data['receiver_id'], $message_data['message']);
     $stmt->execute();
 

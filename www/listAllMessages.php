@@ -4,6 +4,7 @@ include('db.php');
 
 // Requête SQL pour récupérer tous les messages
 $sql = "SELECT * FROM messages";
+/** @var mysqli $conn */
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
